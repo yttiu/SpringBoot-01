@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hnkj</groupId>
-    <artifactId>SpringBoot_01</artifactId>
+    <artifactId>SpringBoot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringBoot_01</name>
     <description>SpringBoot_01</description>
@@ -45,6 +45,10 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
     </dependencies>
 

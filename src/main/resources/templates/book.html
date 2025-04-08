@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图书信息列表</title>
+    <link rel="stylesheet" th:href="@{/css/book.css}">
+    <script th:src="@{/js/scripts.js}"></script>
+</head>
+<body>
+<h1 th:text="#{app.title}">图书信息列表</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${books == null || books.isEmpty()}">
+        <td colspan="5">暂无图书信息</td>
+    </tr>
+    <tr th:if="${books != null && !books.isEmpty()}">
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.publisher}"></td>
+        <td>
+            <button class="btn-edit" th:onclick="'editBook(' + ${book.id} + ')'" >修改</button>
+            <button class="btn-delete" th:onclick="'deleteBook(' + ${book.id} + ')'" >删除</button>
+            <button class="btn-details" th:onclick="'viewDetails(' + ${book.id} + ')'" >详情</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<div th:insert="~{foot::div}">
+</div>
+</html>

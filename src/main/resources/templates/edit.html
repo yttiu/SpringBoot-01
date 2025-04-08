@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑图书信息</title>
+    <link rel="stylesheet" th:href="@{/css/edit.css}">
+</head>
+<body>
+<h1>编辑图书信息</h1>
+<form th:action="@{/update/{id}(id=${book.id})}" method="post">
+    <input type="hidden" th:value="${book.id}" name="id">
+    <label for="name">书名:</label>
+    <input type="text" id="name" name="name" th:value="${book.name}" required><br><br>
+    <label for="author">作者:</label>
+    <input type="text" id="author" name="author" th:value="${book.author}" required><br><br>
+    <label for="publisher">出版社:</label>
+    <input type="text" id="publisher" name="publisher" th:value="${book.publisher}" required><br><br>
+    <button type="submit">保存</button>
+</form>
+<a href="/list">返回图书列表</a>
+</body>
+</html>
